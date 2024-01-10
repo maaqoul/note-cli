@@ -8,4 +8,5 @@ export const newNote = async (note, tags) => {
   };
 
   await insert(newNote);
+  return newNote;
 };
