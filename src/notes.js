@@ -16,9 +16,21 @@ export const getAllNotes = async () => {
   return notes;
 };
 
-export const findAllNotes = async (keyword) => {
-  const { notes } = getDB();
+export const findNote = async (keyword) => {
+  const notes = await getAllNotes();
   return notes.filter((note) =>
     note.content.toLowerCase().includes(keyword.toLowerCase())
   );
+};
+
+export const removeNote = async (id) => {
+  const notes = await getAllNotes();
+  const match = note.find((note) => note.id === id);
+
+  if (match) {
+    const newNotes = notes.filter((note) => note.id !== id);
+
+    await saveDB({ notes: newNotes });
+    return id;
+  }
 };
