@@ -8,12 +8,13 @@
   },
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "open": "^10.0.3",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
